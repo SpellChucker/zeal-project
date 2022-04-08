@@ -33,7 +33,7 @@ export const searchRecipes = (name, ingredients) => {
   return (dispatch) => {
     dispatch(fetchingSearch())
     return executeSearch(name, ingredients)
-      .then((res) => fetchedSearch(res))
+      .then((res) => dispatch(fetchedSearch(res)))
       .catch((err) => dispatch(failedSearch(err)))
   }
 }
