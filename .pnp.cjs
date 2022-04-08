@@ -544,6 +544,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.1.2"
       ],
       [
+        "@redux-devtools/extension",
+        "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:3.2.2"
+      ],
+      [
         "@sindresorhus/is",
         "npm:4.2.0"
       ],
@@ -9307,6 +9311,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["npm:7.17.9", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.17.9-c52a5e9d27-4d56bdb828.zip/node_modules/@babel/runtime/",
+          "packageDependencies": [
+            ["@babel/runtime", "npm:7.17.9"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:7.9.0", {
           "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.9.0-fa03662500-dc9b50c189.zip/node_modules/@babel/runtime/",
           "packageDependencies": [
@@ -9683,6 +9695,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@npmcli/move-file", "npm:1.1.2"],
             ["mkdirp", "npm:1.0.4"],
             ["rimraf", "npm:3.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@redux-devtools/extension", [
+        ["npm:3.2.2", {
+          "packageLocation": "./.yarn/cache/@redux-devtools-extension-npm-3.2.2-87ff18ef34-f7668cc72f.zip/node_modules/@redux-devtools/extension/",
+          "packageDependencies": [
+            ["@redux-devtools/extension", "npm:3.2.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:3.2.2", {
+          "packageLocation": "./.yarn/__virtual__/@redux-devtools-extension-virtual-4029fa2341/0/cache/@redux-devtools-extension-npm-3.2.2-87ff18ef34-f7668cc72f.zip/node_modules/@redux-devtools/extension/",
+          "packageDependencies": [
+            ["@redux-devtools/extension", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:3.2.2"],
+            ["@babel/runtime", "npm:7.17.9"],
+            ["@types/redux", null],
+            ["redux", "npm:4.0.5"]
+          ],
+          "packagePeers": [
+            "@types/redux",
+            "redux"
           ],
           "linkType": "HARD",
         }]
@@ -10497,6 +10532,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:7.12.11"],
             ["@babel/preset-react", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:7.12.10"],
             ["@material-ui/core", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:4.9.5"],
+            ["@redux-devtools/extension", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:3.2.2"],
             ["babel-eslint", "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:10.1.0"],
             ["babel-loader", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:8.0.6"],
             ["esbuild", "npm:0.12.18"],

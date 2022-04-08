@@ -1893,6 +1893,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.17.0":
+  version: 7.17.9
+  resolution: "@babel/runtime@npm:7.17.9"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.7":
   version: 7.15.4
   resolution: "@babel/runtime@npm:7.15.4"
@@ -2189,6 +2198,17 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: c96381d4a37448ea280951e46233f7e541058cf57a57d4094dd4bdcaae43fa5872b5f2eb6bfb004591a68e29c5877abe3cdc210cb3588cbf20ab2877f31a7de7
+  languageName: node
+  linkType: hard
+
+"@redux-devtools/extension@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@redux-devtools/extension@npm:3.2.2"
+  dependencies:
+    "@babel/runtime": ^7.17.0
+  peerDependencies:
+    redux: ^3.1.0 || ^4.0.0
+  checksum: f7668cc72f4d570e9f63a3581185047b5eab1564dfecf0bcea7974d9bc08fe8f87ea3acd658cd1db160f0a82c9e879a49b3cd1c193f6e0d8c1490af9975c20e5
   languageName: node
   linkType: hard
 
@@ -2822,6 +2842,7 @@ __metadata:
     "@babel/preset-env": 7.12.11
     "@babel/preset-react": 7.12.10
     "@material-ui/core": 4.9.5
+    "@redux-devtools/extension": ^3.2.2
     babel-eslint: 10.1.0
     babel-loader: 8.0.6
     esbuild: 0.12.18
