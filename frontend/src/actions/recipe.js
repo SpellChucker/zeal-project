@@ -23,8 +23,8 @@ export const executeGetRecipe = async (id) => {
       "Content-Type": "application/json",
     },
   })
-  const searchResults = await response.json()
-  return searchResults
+
+  return response
 }
 
 export const fetchRecipe = (id) => {
@@ -32,7 +32,13 @@ export const fetchRecipe = (id) => {
     dispatch(fetchingRecipe())
     try {
       const res = await executeGetRecipe(id)
-      return dispatch(fetchedRecipe(res))
+      const recipe = await res.json()
+
+      if (res.ok) {
+        return dispatch(fetchedRecipe(recipe))
+      }
+
+      return dispatch(failedRecipe(recipe))
     } catch (err) {
       return dispatch(failedRecipe(err))
     }

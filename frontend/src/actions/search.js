@@ -24,8 +24,7 @@ export const executeSearch = async (name, ingredients) => {
     },
     body: JSON.stringify({ name, ingredients }),
   })
-  const searchResults = await response.json()
-  return searchResults
+  return response
 }
 
 export const searchRecipes = (name, ingredients) => {
@@ -33,7 +32,13 @@ export const searchRecipes = (name, ingredients) => {
     dispatch(fetchingSearch())
     try {
       const res = await executeSearch(name, ingredients)
-      return dispatch(fetchedSearch(res))
+      const searchResults = await res.json()
+
+      if (res.ok) {
+        return dispatch(fetchedSearch(searchResults))
+      }
+
+      return dispatch(failedSearch(searchResults))
     } catch (err) {
       return dispatch(failedSearch(err))
     }

@@ -11,11 +11,11 @@ const recipeFetching = (state) => {
 }
 
 const recipeFetched = (state, payload) => {
-  return { ...state, isLoading: false, recipe: payload }
+  return { ...state, isLoading: false, error: null, recipe: payload }
 }
 
 const recipeFailed = (state, payload) => {
-  return { ...state, isLoading: false, error: payload }
+  return { ...state, isLoading: false, recipe: null, error: payload }
 }
 
 export default (state = initialState, { type, payload }) => {
