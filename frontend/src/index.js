@@ -5,7 +5,9 @@ import thunkMiddleware from "redux-thunk"
 import { createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from "@redux-devtools/extension"
 import { hot } from "react-hot-loader"
+import { HashRouter, Switch, Route } from "react-router-dom"
 import Home from "./Containers/Home"
+import Recipe from "./Containers/Recipe"
 import reducers from "./reducers"
 
 const store = createStore(
@@ -17,7 +19,16 @@ const store = createStore(
 
 const WrappedHome = () => (
   <Provider store={store}>
-    <Home />
+    <HashRouter basename="/">
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/recipe/:id">
+          <Recipe />
+        </Route>
+      </Switch>
+    </HashRouter>
   </Provider>
 )
 

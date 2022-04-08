@@ -1,8 +1,20 @@
-import React from "react"
-import { connect } from "react-redux"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useParams } from "react-router-dom";
+import { fetchRecipe } from "../../actions";
 
 // Create a recipe component using the recipe reducer to display the recipe.
-export const Recipe = ({ recipe }) => {
+export default function Recipe({ showViewLink = false }) {
+  const { id } = useParams()
+  const dispatch = useDispatch()
+  const recipe = useSelector((state) => state.recipe.recipe)
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchRecipe(id))
+    }
+  }, [id])
+
   if (!recipe) {
     return null
   }
@@ -14,18 +26,12 @@ export const Recipe = ({ recipe }) => {
       <h4>Ingredients</h4>
       <ul>
         {recipe.ingredients.map((ingredient) => {
-          const { _id, name, amount, unit } = ingredient
+          const { id, name, amount, unit } = ingredient
 
-          return <li key={_id}>{amount} {unit} of {name}</li>
+          return <li key={id}>{amount} {unit} of {name}</li>
         })}
       </ul>
+      {showViewLink && <Link to={`/recipe/${recipe.id}`}>View Recipe</Link>}
     </div>
   )
 }
-
-const mapStateToProps = (state) => {
-  const { recipe } = state
-  return { ...recipe }
-}
-
-export default connect(mapStateToProps)(Recipe)

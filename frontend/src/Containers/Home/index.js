@@ -79,15 +79,15 @@ class Home extends Component {
         {recipes && (
           <List>
             {recipes.map((recipe) => (
-              <ListItem key={recipe.id}>
-                <ListItemText primary={recipe.name} onClick={() => this.fetchRecipe(recipe.id)} />
+              <ListItem key={recipe.id} button={true} onClick={() => this.fetchRecipe(recipe.id)}>
+                <ListItemText primary={recipe.name} />
               </ListItem>
             ))}
           </List>
         )}
         {isLoading && <LinearProgress />}
         <Divider />
-        <Recipe />
+        <Recipe showViewLink={true} />
       </HomeWrapper>
     )
   }
