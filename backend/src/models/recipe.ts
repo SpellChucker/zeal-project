@@ -19,6 +19,15 @@ const RecipeSchema = new Schema({
     required: true,
   },
   ingredients: [IngredientSchema],
+}, {
+  // Cleans up the weird mongodb schema.
+  toJSON: {
+    transform(doc, ret) {
+      ret.id = ret._id
+      delete ret._id
+      delete ret.__v
+    }
+  }
 })
 
 export const RecipeModel = model<Recipe, Model<Recipe>>("Recipe", RecipeSchema)

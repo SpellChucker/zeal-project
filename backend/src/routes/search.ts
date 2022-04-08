@@ -1,5 +1,7 @@
+import express, { Request, Response } from "express"
 import { RecipeModel, Ingredient } from "../models"
-import { Request, Response } from "express"
+
+const router = express.Router()
 
 const allIngredients = ["flour", "sugar", "salt", "butter", "milk"]
 
@@ -17,10 +19,7 @@ const recipeCleaner = (recipe): { id: string; name: string } => {
   return { id, name }
 }
 
-export const searchMiddleware = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+router.post("/api/search", async (req: Request, res: Response): Promise<void> => {
   const { name, ingredients } = req.body
   const query: Query = {}
   if (name) {
@@ -33,4 +32,6 @@ export const searchMiddleware = async (
   const foundRecipes = await RecipeModel.find(query)
   const builtRecipes = foundRecipes.map(recipeCleaner)
   res.send(builtRecipes)
-}
+});
+
+export { router as searchRouter }

@@ -11,11 +11,12 @@ export const Recipe = ({ recipe }) => {
     <div>
       <h1>{recipe.name}</h1>
       <p>{recipe.instructions}</p>
+      <h4>Ingredients</h4>
       <ul>
         {recipe.ingredients.map((ingredient) => {
           const { _id, name, amount, unit } = ingredient
 
-          return <li key={_id}>{amount} {unit} {name}</li>
+          return <li key={_id}>{amount} {unit} of {name}</li>
         })}
       </ul>
     </div>

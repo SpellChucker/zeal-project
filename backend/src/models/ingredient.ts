@@ -19,4 +19,13 @@ export const IngredientSchema = new Schema({
     type: Number,
     required: true,
   },
+}, {
+  // Cleans up the weird mongodb schema.
+  toJSON: {
+    transform(doc, ret) {
+      ret.id = ret._id
+      delete ret._id
+      delete ret.__v
+    }
+  }
 })
