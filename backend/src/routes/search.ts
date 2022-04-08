@@ -26,7 +26,7 @@ export const searchMiddleware = async (
   if (name) {
     query.name = new RegExp(escapeRegex(name), "gi")
   }
-  if (ingredients) {
+  if (ingredients.length > 0) {
     const whatsLeft = allIngredients.filter((ing) => !ingredients.includes(ing))
     query["ingredients.name"] = { $nin: whatsLeft }
   }

@@ -8,6 +8,7 @@ export interface Recipe extends Document {
 }
 
 const RecipeSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: {
     type: String,
     required: true,
