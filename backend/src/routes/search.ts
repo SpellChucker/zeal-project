@@ -10,8 +10,8 @@ const escapeRegex = (text): string => {
 }
 
 interface Query {
-  name?: RegExp
-  ingredients?: Ingredient[]
+  name?: RegExp;
+  ingredients?: Ingredient[];
 }
 
 const recipeCleaner = (recipe): { id: string; name: string } => {
@@ -32,6 +32,6 @@ router.post("/api/search", async (req: Request, res: Response): Promise<void> =>
   const foundRecipes = await RecipeModel.find(query)
   const builtRecipes = foundRecipes.map(recipeCleaner)
   res.send(builtRecipes)
-});
+})
 
 export { router as searchRouter }

@@ -18,8 +18,8 @@ const appStartup = async (): Promise<void> => {
   app.use(recipeRouter)
 
   app.all('*', () => {
-    throw new NotFoundError();
-  });
+    throw new NotFoundError()
+  })
 
   // Handle errors gracefully.
   app.use(errorHandler)

@@ -2,9 +2,9 @@ import { Document, Schema, Model, model } from "mongoose"
 import { Ingredient, IngredientSchema } from "./ingredient"
 
 export interface Recipe extends Document {
-  name: string
-  instructions: string
-  ingredients: Ingredient[]
+  name: string;
+  instructions: string;
+  ingredients: Ingredient[];
 }
 
 const RecipeSchema = new Schema({
@@ -22,7 +22,7 @@ const RecipeSchema = new Schema({
 }, {
   // Cleans up the weird mongodb schema.
   toJSON: {
-    transform(doc, ret) {
+    transform(doc, ret): void {
       ret.id = ret._id
       delete ret._id
       delete ret.__v

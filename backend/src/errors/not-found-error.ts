@@ -10,7 +10,7 @@ export class NotFoundError extends CustomError {
     Object.setPrototypeOf(this, NotFoundError.prototype)
   }
 
-  serializeErrors() {
+  serializeErrors(): { message: string; field?: string }[] {
     return [{ message: 'Not found' }]
   }
 }

@@ -1,9 +1,9 @@
 import { Schema } from "mongoose"
 
 export interface Ingredient {
-  name: string
-  unit: string
-  amount: number
+  name: string;
+  unit: string;
+  amount: number;
 }
 
 export const IngredientSchema = new Schema({
@@ -22,7 +22,7 @@ export const IngredientSchema = new Schema({
 }, {
   // Cleans up the weird mongodb schema.
   toJSON: {
-    transform(doc, ret) {
+    transform(doc, ret): void {
       ret.id = ret._id
       delete ret._id
       delete ret.__v
