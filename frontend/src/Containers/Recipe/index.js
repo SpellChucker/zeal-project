@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom";
-import { fetchRecipe } from "../../actions";
+import { Link, useParams } from "react-router-dom"
+import { fetchRecipe } from "../../actions"
 
 // Create a recipe component using the recipe reducer to display the recipe.
 export default function Recipe({ showViewLink = false }) {

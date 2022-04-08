@@ -31,7 +31,7 @@ class Home extends Component {
     this.props.searchRecipes(this.state.term, this.state.ingredients)
   }
   fetchRecipe(id) {
-    this.props.fetchRecipe(id);
+    this.props.fetchRecipe(id)
   }
   handleSearch(event) {
     const term = event.target.value
