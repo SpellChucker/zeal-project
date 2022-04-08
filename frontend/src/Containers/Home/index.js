@@ -29,6 +29,9 @@ class Home extends Component {
   fetchSearch() {
     this.props.searchRecipes(this.state.term, this.state.ingredients)
   }
+  fetchRecipe(id) {
+    this.props.fetchRecipe(id);
+  }
   handleSearch(event) {
     const term = event.target.value
     this.setState({ term })
@@ -76,7 +79,7 @@ class Home extends Component {
           <List>
             {recipes.map((recipe) => (
               <ListItem key={recipe.id}>
-                <ListItemText primary={recipe.name} />
+                <ListItemText primary={recipe.name} onClick={() => this.fetchRecipe(recipe.id)} />
               </ListItem>
             ))}
           </List>
@@ -102,6 +105,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       searchRecipes: actions.searchRecipes,
+      fetchRecipe: actions.fetchRecipe,
     },
     dispatch
   )
