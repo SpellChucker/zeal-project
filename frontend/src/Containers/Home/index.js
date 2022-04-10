@@ -2,11 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { HomeWrapper } from "./styles"
-import Input from "@material-ui/core/Input"
-import Checkbox from "@material-ui/core/Checkbox"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Divider from "@material-ui/core/Divider"
-import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
@@ -14,8 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import Alert from "@material-ui/lab/Alert"
 import * as actions from "../../actions"
 import Recipe from "../Recipe"
-
-const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
+import RecipeForm from "../../components/RecipeForm"
 
 class Home extends Component {
   constructor(props) {
@@ -54,35 +49,11 @@ class Home extends Component {
     this.fetchSearch()
   }
   render() {
-    const { term, ingredients } = this.state
     const { recipes, isLoading, error } = this.props
+
     return (
       <HomeWrapper>
-        <form onSubmit={this.handleSubmit}>
-          <Input
-            autoFocus={true}
-            fullWidth={true}
-            onChange={this.handleSearch}
-            value={term}
-          />
-          <div>
-            <h3>Ingredients on hand</h3>
-            {ingredientList.map((ingredient) => (
-              <FormControlLabel
-                key={ingredient}
-                control={
-                  <Checkbox
-                    checked={ingredients.includes(ingredient)}
-                    onChange={this.handleIngredient.bind(this, ingredient)}
-                    value={ingredient}
-                  />
-                }
-                label={ingredient}
-              />
-            ))}
-          </div>
-          <Button type="submit" fullWidth={true}>search</Button>
-        </form>
+        <RecipeForm />
         <Divider />
         {error && <Alert severity="error">There was an error searching for recipes</Alert>}
         {recipes && recipes.length > 0 && (
