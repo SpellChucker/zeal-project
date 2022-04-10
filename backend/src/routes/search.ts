@@ -25,7 +25,7 @@ router.post("/api/search", async (req: Request, res: Response): Promise<void> =>
   if (name) {
     query.name = new RegExp(escapeRegex(name), "gi")
   }
-  if (ingredients.length > 0) {
+  if (ingredients) {
     const whatsLeft = allIngredients.filter((ing) => !ingredients.includes(ing))
     query["ingredients.name"] = { $nin: whatsLeft }
   }
