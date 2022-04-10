@@ -23,6 +23,7 @@ class Home extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleIngredient = this.handleIngredient.bind(this)
     this.fetchSearch = this.fetchSearch.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       term: "",
       ingredients: ["milk"],
@@ -48,34 +49,40 @@ class Home extends Component {
     }
     this.setState({ ingredients })
   }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.fetchSearch()
+  }
   render() {
     const { term, ingredients } = this.state
     const { recipes, isLoading, error } = this.props
     return (
       <HomeWrapper>
-        <Input
-          autoFocus={true}
-          fullWidth={true}
-          onChange={this.handleSearch}
-          value={term}
-        />
-        <div>
-          <h3>Ingredients on hand</h3>
-          {ingredientList.map((ingredient) => (
-            <FormControlLabel
-              key={ingredient}
-              control={
-                <Checkbox
-                  checked={ingredients.includes(ingredient)}
-                  onChange={this.handleIngredient.bind(this, ingredient)}
-                  value={ingredient}
-                />
-              }
-              label={ingredient}
-            />
-          ))}
-        </div>
-        <Button onClick={this.fetchSearch}>search</Button>
+        <form onSubmit={this.handleSubmit}>
+          <Input
+            autoFocus={true}
+            fullWidth={true}
+            onChange={this.handleSearch}
+            value={term}
+          />
+          <div>
+            <h3>Ingredients on hand</h3>
+            {ingredientList.map((ingredient) => (
+              <FormControlLabel
+                key={ingredient}
+                control={
+                  <Checkbox
+                    checked={ingredients.includes(ingredient)}
+                    onChange={this.handleIngredient.bind(this, ingredient)}
+                    value={ingredient}
+                  />
+                }
+                label={ingredient}
+              />
+            ))}
+          </div>
+          <Button type="submit" fullWidth={true}>search</Button>
+        </form>
         <Divider />
         {error && <Alert severity="error">There was an error searching for recipes</Alert>}
         {recipes && recipes.length > 0 && (
