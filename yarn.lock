@@ -2845,6 +2845,7 @@ __metadata:
     esbuild-register: 2.6.0
     eslint: 6.8.0
     express: 4.17.1
+    express-async-errors: ^3.1.1
     lodash: 4.17.15
     lorem-ipsum: 2.0.3
     mongodb-memory-server: 6.3.3
@@ -6066,6 +6067,15 @@ __metadata:
   dependencies:
     homedir-polyfill: ^1.0.1
   checksum: 2efe6ed407d229981b1b6ceb552438fbc9e5c7d6a6751ad6ced3e0aa5cf12f0b299da695e90d6c2ac79191b5c53c613e508f7149e4573abfbb540698ddb7301a
+  languageName: node
+  linkType: hard
+
+"express-async-errors@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "express-async-errors@npm:3.1.1"
+  peerDependencies:
+    express: ^4.16.2
+  checksum: 3a2a6df8ea957185df401a239189d617715c38fba13fac8ced7750b25fa95b0ae656e5d1385d12d0e4dcd7997e90d070b218e86abcf8e68bb6048830b53ba668
   languageName: node
   linkType: hard
 

@@ -1840,6 +1840,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:4.17.1"
       ],
       [
+        "express-async-errors",
+        "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:3.1.1"
+      ],
+      [
         "extend-shallow",
         "npm:2.0.1"
       ],
@@ -10579,6 +10583,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild-register", "npm:2.6.0"],
             ["eslint", "npm:6.8.0"],
             ["express", "npm:4.17.1"],
+            ["express-async-errors", "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:3.1.1"],
             ["lodash", "npm:4.17.15"],
             ["lorem-ipsum", "npm:2.0.3"],
             ["mongodb-memory-server", "npm:6.3.3"],
@@ -14431,6 +14436,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-is", "npm:1.6.18"],
             ["utils-merge", "npm:1.0.1"],
             ["vary", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["express-async-errors", [
+        ["npm:3.1.1", {
+          "packageLocation": "./.yarn/cache/express-async-errors-npm-3.1.1-c0a6b1e552-3a2a6df8ea.zip/node_modules/express-async-errors/",
+          "packageDependencies": [
+            ["express-async-errors", "npm:3.1.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:3.1.1", {
+          "packageLocation": "./.yarn/__virtual__/express-async-errors-virtual-c6ff68e64a/0/cache/express-async-errors-npm-3.1.1-c0a6b1e552-3a2a6df8ea.zip/node_modules/express-async-errors/",
+          "packageDependencies": [
+            ["express-async-errors", "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:3.1.1"],
+            ["@types/express", "npm:4.17.3"],
+            ["express", "npm:4.17.1"]
+          ],
+          "packagePeers": [
+            "@types/express",
+            "express"
           ],
           "linkType": "HARD",
         }]

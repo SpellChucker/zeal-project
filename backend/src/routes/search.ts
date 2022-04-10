@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express"
-import { RecipeModel, Ingredient } from "../models"
+import { RecipeModel, Ingredient, Recipe } from "../models"
 
 const router = express.Router()
 
@@ -14,7 +14,7 @@ interface Query {
   ingredients?: Ingredient[];
 }
 
-const recipeCleaner = (recipe): { id: string; name: string } => {
+const recipeCleaner = (recipe: Recipe): { id: string; name: string } => {
   const { id, name } = recipe
   return { id, name }
 }
