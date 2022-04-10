@@ -11,6 +11,7 @@ import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
+import Alert from "@material-ui/lab/Alert"
 import * as actions from "../../actions"
 import Recipe from "../Recipe"
 
@@ -49,7 +50,7 @@ class Home extends Component {
   }
   render() {
     const { term, ingredients } = this.state
-    const { recipes, isLoading } = this.props
+    const { recipes, isLoading, error } = this.props
     return (
       <HomeWrapper>
         <Input
@@ -76,7 +77,8 @@ class Home extends Component {
         </div>
         <Button onClick={this.fetchSearch}>search</Button>
         <Divider />
-        {recipes && (
+        {error && <Alert severity="error">There was an error searching for recipes</Alert>}
+        {recipes && recipes.length > 0 && (
           <List>
             {recipes.map((recipe) => (
               <ListItem key={recipe.id} button={true} onClick={() => this.fetchRecipe(recipe.id)}>
@@ -85,6 +87,11 @@ class Home extends Component {
             ))}
           </List>
         )}
+        {
+          recipes && recipes.length === 0 && (
+            <Alert severity="info">No recipes found</Alert>
+          )
+        }
         {isLoading && <LinearProgress />}
         <Divider />
         <Recipe showViewLink={true} />
