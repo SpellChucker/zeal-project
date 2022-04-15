@@ -2,19 +2,15 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { HomeWrapper } from "./styles"
-import Input from "@material-ui/core/Input"
-import Checkbox from "@material-ui/core/Checkbox"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Divider from "@material-ui/core/Divider"
-import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
+import Alert from "@material-ui/lab/Alert"
 import * as actions from "../../actions"
 import Recipe from "../Recipe"
-
-const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
+import RecipeForm from "../../components/RecipeForm"
 
 class Home extends Component {
   constructor(props) {
@@ -22,6 +18,7 @@ class Home extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleIngredient = this.handleIngredient.bind(this)
     this.fetchSearch = this.fetchSearch.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       term: "",
       ingredients: ["milk"],
@@ -47,36 +44,19 @@ class Home extends Component {
     }
     this.setState({ ingredients })
   }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.fetchSearch()
+  }
   render() {
-    const { term, ingredients } = this.state
-    const { recipes, isLoading } = this.props
+    const { recipes, isLoading, error } = this.props
+
     return (
       <HomeWrapper>
-        <Input
-          autoFocus={true}
-          fullWidth={true}
-          onChange={this.handleSearch}
-          value={term}
-        />
-        <div>
-          <h3>Ingredients on hand</h3>
-          {ingredientList.map((ingredient) => (
-            <FormControlLabel
-              key={ingredient}
-              control={
-                <Checkbox
-                  checked={ingredients.includes(ingredient)}
-                  onChange={this.handleIngredient.bind(this, ingredient)}
-                  value={ingredient}
-                />
-              }
-              label={ingredient}
-            />
-          ))}
-        </div>
-        <Button onClick={this.fetchSearch}>search</Button>
+        <RecipeForm />
         <Divider />
-        {recipes && (
+        {error && <Alert severity="error">There was an error searching for recipes</Alert>}
+        {recipes && recipes.length > 0 && (
           <List>
             {recipes.map((recipe) => (
               <ListItem key={recipe.id} button={true} onClick={() => this.fetchRecipe(recipe.id)}>
@@ -85,6 +65,11 @@ class Home extends Component {
             ))}
           </List>
         )}
+        {
+          recipes && recipes.length === 0 && (
+            <Alert severity="info">No recipes found</Alert>
+          )
+        }
         {isLoading && <LinearProgress />}
         <Divider />
         <Recipe showViewLink={true} />
